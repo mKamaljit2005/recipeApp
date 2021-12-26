@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'recipe.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -28,7 +29,6 @@ class RecipeApp extends StatelessWidget {
       home: const MyHomePage(title: 'Recipe Calculator'),
     );
   }
-
 }
 
 class MyHomePage extends StatefulWidget {
@@ -62,7 +62,17 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         // TODO: Replace child: Container()
         // 4
-        child: Container(),
+        // 4
+        child: ListView.builder(
+          // 5
+          itemCount: Recipe.samples.length,
+          // 6
+          itemBuilder: (BuildContext context, int index) {
+            // 7
+            // TODO: Update to return Recipe card
+            return Text(Recipe.samples[index].label);
+          },
+        ),
       ),
     );
   }
